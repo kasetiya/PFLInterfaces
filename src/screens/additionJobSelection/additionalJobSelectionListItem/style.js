@@ -1,22 +1,23 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Dimens} from '../../../config';
+import { StyleSheet } from "react-native";
+import { Colors, Dimens } from "../../../config";
 
 export default StyleSheet.create({
   container: {
-    flex: 0.5,
+    flex: 1,
     borderRadius: Dimens.ms20,
     marginVertical: Dimens.ms8,
     marginHorizontal: Dimens.ms10,
   },
   text_choose_car: {
     color: Colors.colorBlue,
-    fontWeight: '500',
+    fontWeight: "500",
     fontSize: Dimens.ms12,
     marginTop: Dimens.ms8,
   },
   text_title: {
-    alignSelf: 'center',
+    textAlign: "center",
     fontSize: Dimens.ms10,
+    flex: 1,
   },
   text_value: {
     fontSize: Dimens.ms10,
@@ -32,6 +33,6 @@ export default StyleSheet.create({
     width: Dimens.ms8,
     height: Dimens.ms8,
     marginLeft: Dimens.ms8,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
 });

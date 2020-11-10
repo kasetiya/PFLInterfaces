@@ -1,13 +1,13 @@
-import {Container, Root} from 'native-base';
-import React, {Component} from 'react';
-import {FlatList, Image, Text, View} from 'react-native';
-import ContinueButton from '../../components/continueButton';
-import CustomHeader from '../../components/customHeader';
-import {Colors, Dimens} from '../../config';
-import {Images} from '../../config/images';
-import strings from '../../lang/strings';
-import ServiceSelectionListItem from './serviceSelectionListItem.js/index';
-import style from './style';
+import { Container, Root } from "native-base";
+import React, { Component } from "react";
+import { FlatList, Image, Text, View } from "react-native";
+import ContinueButton from "../../components/continueButton";
+import CustomHeader from "../../components/customHeader";
+import { Colors, Constants, Dimens } from "../../config";
+import { Images } from "../../config/images";
+import strings from "../../lang/strings";
+import ServiceSelectionListItem from "./serviceSelectionListItem.js/index";
+import style from "./style";
 
 class ServiceSelection extends Component {
   constructor(props) {
@@ -15,51 +15,51 @@ class ServiceSelection extends Component {
     this.state = {
       serviceList: [
         {
-          includeVat: '2000 SR',
-          mileage: '10000',
-          description: 'Lorem ipsum dolor sit amet, consetetur',
+          includeVat: "2000 SR",
+          mileage: "10000",
+          description: "Lorem ipsum dolor sit amet, consetetur",
           showDetail: true,
         },
         {
-          includeVat: '2000 SR',
-          mileage: '10000',
-          description: 'Lorem ipsum dolor sit amet, consetetur',
+          includeVat: "2000 SR",
+          mileage: "10000",
+          description: "Lorem ipsum dolor sit amet, consetetur",
           showDetail: false,
         },
         {
-          includeVat: '2000 SR',
-          mileage: '10000',
-          description: 'Lorem ipsum dolor sit amet, consetetur',
+          includeVat: "2000 SR",
+          mileage: "10000",
+          description: "Lorem ipsum dolor sit amet, consetetur",
           showDetail: false,
         },
         {
-          includeVat: '2000 SR',
-          mileage: '10000',
-          description: 'Lorem ipsum dolor sit amet, consetetur',
+          includeVat: "2000 SR",
+          mileage: "10000",
+          description: "Lorem ipsum dolor sit amet, consetetur",
           showDetail: false,
         },
         {
-          includeVat: '2000 SR',
-          mileage: '10000',
-          description: 'Lorem ipsum dolor sit amet, consetetur',
+          includeVat: "2000 SR",
+          mileage: "10000",
+          description: "Lorem ipsum dolor sit amet, consetetur",
           showDetail: false,
         },
         {
-          includeVat: '2000 SR',
-          mileage: '10000',
-          description: 'Lorem ipsum dolor sit amet, consetetur',
+          includeVat: "2000 SR",
+          mileage: "10000",
+          description: "Lorem ipsum dolor sit amet, consetetur",
           showDetail: false,
         },
         {
-          includeVat: '2000 SR',
-          mileage: '10000',
-          description: 'Lorem ipsum dolor sit amet, consetetur',
+          includeVat: "2000 SR",
+          mileage: "10000",
+          description: "Lorem ipsum dolor sit amet, consetetur",
           showDetail: false,
         },
         {
-          includeVat: '2000 SR',
-          mileage: '10000',
-          description: 'Lorem ipsum dolor sit amet, consetetur',
+          includeVat: "2000 SR",
+          mileage: "10000",
+          description: "Lorem ipsum dolor sit amet, consetetur",
           showDetail: false,
         },
       ],
@@ -76,16 +76,19 @@ class ServiceSelection extends Component {
         style={{
           marginHorizontal: Dimens.ms60,
           marginTop: Dimens.ms30,
-        }}>
+        }}
+      >
         <Image
           source={Images.ic_progress_2}
           style={{
             height: Dimens.ms10,
-            width: '100%',
+            width: "100%",
           }}
           resizeMode="contain"
         />
-        <Text style={{...style.text_choose_car}}>{strings.choose_service}</Text>
+        <Text style={{ ...style.text_choose_car }}>
+          {strings.choose_service}
+        </Text>
       </View>
     );
   }
@@ -96,12 +99,12 @@ class ServiceSelection extends Component {
       all_service[i].showDetail = false;
     }
     all_service[index].showDetail = true;
-    this.setState({serviceList: all_service});
+    this.setState({ serviceList: all_service });
   }
 
   renderServiceList() {
     return (
-      <View style={{marginTop: Dimens.ms45}}>
+      <View style={{ marginTop: Dimens.ms45, flex: 1 }}>
         <FlatList
           listKey={(item, index) => index.toString()}
           bounces={false}
@@ -111,8 +114,8 @@ class ServiceSelection extends Component {
           showsVerticalScrollIndicator={false}
           data={this.state.serviceList}
           numColumns={1}
-          keyExtractor={({id}, index) => index.toString()}
-          renderItem={({item, index}) => (
+          keyExtractor={({ id }, index) => index.toString()}
+          renderItem={({ item, index }) => (
             <ServiceSelectionListItem
               row={item}
               itemIndex={index}
@@ -126,23 +129,28 @@ class ServiceSelection extends Component {
   }
 
   gotoLocationSelection = () => {
-    this.props.navigation.navigate('LocationSelection');
+    this.props.navigation.navigate("LocationSelection");
   };
 
   render() {
     return (
       <Root>
-        <Container style={{backgroundColor: Colors.colorBackground}}>
+        <Container style={{ backgroundColor: Colors.colorBackground }}>
           <CustomHeader leftAction={this.goBack} />
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             {this.renderProgressView()}
             {this.renderServiceList()}
           </View>
-          <View style={{marginBottom: Dimens.ms60}}>
+          <View
+            style={{
+              marginBottom:
+                Platform.OS == Constants.ios ? Dimens.ms60 : Dimens.ms25,
+            }}
+          >
             <ContinueButton
               enable={true}
               buttonAction={this.gotoLocationSelection}
-              title={'2'}
+              title={"2"}
             />
           </View>
         </Container>

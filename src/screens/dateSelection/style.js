@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Dimens} from '../../config';
+import { StyleSheet } from "react-native";
+import { Colors, Dimens } from "../../config";
 
 export default StyleSheet.create({
   container: {
@@ -7,7 +7,7 @@ export default StyleSheet.create({
   },
   text_choose_car: {
     color: Colors.colorBlue,
-    fontWeight: '500',
+    fontWeight: "500",
     fontSize: Dimens.ms12,
     marginTop: Dimens.ms8,
   },
@@ -22,11 +22,11 @@ export default StyleSheet.create({
     backgroundColor: Colors.colorWhite,
     marginHorizontal: Dimens.ms16,
     shadowColor: Colors.colorShadow,
-    shadowOffset: {width: 0, height: 1},
+    shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: Dimens.ms4,
     marginTop: Dimens.ms10,
-
+    marginBottom: Dimens.ms8,
     padding: Dimens.ms6,
   },
 });

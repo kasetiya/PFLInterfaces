@@ -1,12 +1,12 @@
-import {Container, Root} from 'native-base';
-import React, {Component} from 'react';
-import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import ShadowView from 'react-native-simple-shadow-view';
-import {Switch} from 'react-native-switch';
-import CustomHeader from '../../components/customHeader';
-import {Colors, Dimens, Images} from '../../config';
-import strings from '../../lang/strings';
-import style from './style';
+import { Container, Root } from "native-base";
+import React, { Component } from "react";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import ShadowView from "react-native-simple-shadow-view";
+import { Switch } from "react-native-switch";
+import CustomHeader from "../../components/customHeader";
+import { Colors, Constants, Dimens, Images } from "../../config";
+import strings from "../../lang/strings";
+import style from "./style";
 
 class AppointmentSummary extends Component {
   constructor(props) {
@@ -26,19 +26,20 @@ class AppointmentSummary extends Component {
         style={{
           marginHorizontal: Dimens.ms60,
           marginTop: Dimens.ms30,
-        }}>
+        }}
+      >
         <Image
           source={Images.ic_progress_6}
           style={{
             height: Dimens.ms10,
-            width: '100%',
+            width: "100%",
           }}
           resizeMode="contain"
         />
-        <Text style={{...style.text_choose_car}}>
+        <Text style={{ ...style.text_choose_car }}>
           {strings.car_service_appointment_summary}
         </Text>
-        <Text style={{...style.text_review}}>
+        <Text style={{ ...style.text_review }}>
           {strings.review_and_confirm_your_appointment}
         </Text>
       </View>
@@ -48,64 +49,66 @@ class AppointmentSummary extends Component {
   renderDetailView() {
     return (
       <ScrollView>
-        <ShadowView style={{...style.view_detail_container}}>
-          <Text style={{...style.text_car_title}}>Mazda model car</Text>
-          <View style={{...style.view_seperator}} />
-          <View style={{...style.view_text}}>
-            <Text style={{...style.text_title}}>{strings.location}</Text>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text style={{...style.text_value}}>Saudi Arabia</Text>
+        <ShadowView style={{ ...style.view_detail_container }}>
+          <Text style={{ ...style.text_car_title }}>Mazda model car</Text>
+          <View style={{ ...style.view_seperator }} />
+          <View style={{ ...style.view_text }}>
+            <Text style={{ ...style.text_title }}>{strings.location}</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text style={{ ...style.text_value }}>Saudi Arabia</Text>
               <Image
                 source={Images.ic_location}
-                style={{...style.image_small}}
+                style={{ ...style.image_small }}
                 resizeMode="contain"
               />
-              <Text style={{...style.text_value, color: Colors.colorBlue}}>
+              <Text style={{ ...style.text_value, color: Colors.colorBlue }}>
                 {strings.go_to_service_center}
               </Text>
             </View>
           </View>
 
-          <View style={{...style.view_text}}>
-            <Text style={{...style.text_title}}>{strings.service_type}</Text>
-            <Text style={{...style.text_value}}>Lorem Ipsum</Text>
+          <View style={{ ...style.view_text }}>
+            <Text style={{ ...style.text_title }}>{strings.service_type}</Text>
+            <Text style={{ ...style.text_value }}>Lorem Ipsum</Text>
           </View>
 
-          <View style={{...style.view_text}}>
-            <Text style={{...style.text_title}}>
+          <View style={{ ...style.view_text }}>
+            <Text style={{ ...style.text_title }}>
               {strings.total_included_vat}
             </Text>
-            <Text style={{...style.text_value}}>2000 SR</Text>
+            <Text style={{ ...style.text_value }}>2000 SR</Text>
           </View>
 
-          <View style={{...style.view_text}}>
-            <Text style={{...style.text_title}}>{strings.mileage}</Text>
-            <Text style={{...style.text_value}}>10000</Text>
+          <View style={{ ...style.view_text }}>
+            <Text style={{ ...style.text_title }}>{strings.mileage}</Text>
+            <Text style={{ ...style.text_value }}>10000</Text>
           </View>
 
-          <View style={{...style.view_text}}>
-            <Text style={{...style.text_title}}>{strings.description}</Text>
-            <Text style={{...style.text_value}}>
+          <View style={{ ...style.view_text }}>
+            <Text style={{ ...style.text_title }}>{strings.description}</Text>
+            <Text style={{ ...style.text_value }}>
               Lorem ipsum dolor sit amet, consetetur
             </Text>
           </View>
 
-          <View style={{...style.view_text}}>
-            <Text style={{...style.text_title}}>{strings.additonal_jobs}</Text>
-            <Text style={{...style.text_value}}>Lorem ipsum</Text>
+          <View style={{ ...style.view_text }}>
+            <Text style={{ ...style.text_title }}>
+              {strings.additonal_jobs}
+            </Text>
+            <Text style={{ ...style.text_value }}>Lorem ipsum</Text>
           </View>
 
-          <View style={{...style.view_text}}>
-            <Text style={{...style.text_title}}>{strings.date_and_time}</Text>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text style={{...style.text_value}}>
+          <View style={{ ...style.view_text }}>
+            <Text style={{ ...style.text_title }}>{strings.date_and_time}</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text style={{ ...style.text_value }}>
                 Wed, 08-Sep-2020 at 11:00 AM
               </Text>
               <Image
                 source={Images.ic_calendar}
-                style={{...style.image_small}}
+                style={{ ...style.image_small }}
               />
-              <Text style={{...style.text_value, color: Colors.colorBlue}}>
+              <Text style={{ ...style.text_value, color: Colors.colorBlue }}>
                 {strings.add_to_calendar}
               </Text>
             </View>
@@ -118,7 +121,7 @@ class AppointmentSummary extends Component {
 
   renderSwitchView() {
     return (
-      <View style={{...style.view_switch_container}}>
+      <View style={{ ...style.view_switch_container }}>
         <Switch
           value={this.state.isAccepted}
           onValueChange={(val) =>
@@ -127,14 +130,14 @@ class AppointmentSummary extends Component {
             })
           }
           containerStyle={{
-            borderWidth: 1,
+            borderWidth: 0.5,
             borderColor: Colors.colorTextGray,
           }}
-          activeText={'Yes'}
-          inActiveText={'No'}
+          activeText={"Yes"}
+          inActiveText={"No"}
           circleBorderWidth={0}
           circleSize={Dimens.ms18}
-          backgroundActive={'green'}
+          backgroundActive={"green"}
           backgroundInactive={Colors.colorWhite}
           renderInsideCircle={() => (
             <Image
@@ -143,13 +146,15 @@ class AppointmentSummary extends Component {
                   ? Images.ic_booking_success
                   : Images.ic_switch_close
               }
-              style={{width: Dimens.ms18, height: Dimens.ms18}}
+              style={{ width: Dimens.ms18, height: Dimens.ms18 }}
             />
           )}
           renderActiveText={false}
           renderInActiveText={false}
+          switchRightPx={2}
+          switchLeftPx={2}
         />
-        <Text style={{...style.text_terms_of_service}}>
+        <Text style={{ ...style.text_terms_of_service }}>
           {
             strings.i_have_read_and_accept_the_terms_of_service_and_privacy_policy
           }
@@ -159,7 +164,7 @@ class AppointmentSummary extends Component {
   }
 
   gotoBookingStatus = () => {
-    this.props.navigation.navigate('BookingStatus');
+    this.props.navigation.navigate("BookingStatus");
   };
 
   renderMakeAppointMentButton() {
@@ -167,34 +172,38 @@ class AppointmentSummary extends Component {
       <View>
         <Text
           style={{
-            alignSelf: 'center',
+            alignSelf: "center",
             marginVertical: Dimens.ms8,
             fontSize: 12,
             color: Colors.colorTextGray,
-          }}>
-          {'6'} {strings.of_six}
+          }}
+        >
+          {"6"} {strings.of_six}
         </Text>
         <TouchableOpacity
           onPress={this.gotoBookingStatus}
-          disabled={!this.state.isAccepted}>
+          disabled={!this.state.isAccepted}
+        >
           <View
             style={{
-              justifyContent: 'center',
+              justifyContent: "center",
               backgroundColor: this.state.isAccepted
                 ? Colors.colorOrange
                 : Colors.colorTextGray,
-              alignSelf: 'center',
+              alignSelf: "center",
               paddingHorizontal: Dimens.ms20,
               paddingVertical: Dimens.ms10,
               borderRadius: Dimens.ms30,
-            }}>
+            }}
+          >
             <Text
               style={{
-                fontWeight: 'bold',
+                fontWeight: "bold",
                 fontSize: 10,
                 color: Colors.colorWhite,
-                textTransform: 'uppercase',
-              }}>
+                textTransform: "uppercase",
+              }}
+            >
               {strings.make_appointment}
             </Text>
           </View>
@@ -206,13 +215,18 @@ class AppointmentSummary extends Component {
   render() {
     return (
       <Root>
-        <Container style={{backgroundColor: Colors.colorBackground}}>
+        <Container style={{ backgroundColor: Colors.colorBackground }}>
           <CustomHeader leftAction={this.goBack} />
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             {this.renderProgressView()}
             {this.renderDetailView()}
           </View>
-          <View style={{marginBottom: Dimens.ms60}}>
+          <View
+            style={{
+              marginBottom:
+                Platform.OS == Constants.ios ? Dimens.ms60 : Dimens.ms25,
+            }}
+          >
             {this.renderMakeAppointMentButton()}
           </View>
         </Container>

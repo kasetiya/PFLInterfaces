@@ -150,6 +150,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('PFLInterface.keystore')
+            storePassword '12345678'
+            keyAlias 'PFL_Interface'
+            keyPassword '12345678'
+        }
     }
     buildTypes {
         debug {
